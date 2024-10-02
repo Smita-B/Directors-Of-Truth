@@ -44,3 +44,8 @@ The system integrates multiple functionalities, allowing for efficient collectio
 - **Operational Efficiency**: Simplifies and accelerates case lodging and data sharing processes.
 
 For detailed information on system architecture, modules, and implementation, please refer to the accompanying [PDF Documentation](./documentation.pdf).
+
+## Disclaimer
+
+All pictures used in this project are excluded for privacy reasons. This project is developed solely for educational purposes. Any resemblance or correlation with real-life data, individuals, or events is purely coincidental and unintended.
+
