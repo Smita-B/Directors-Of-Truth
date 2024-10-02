@@ -43,7 +43,7 @@ The system integrates multiple functionalities, allowing for efficient collectio
 - **Increased Transparency**: Provides citizens with real-time insights into law enforcement activities.
 - **Operational Efficiency**: Simplifies and accelerates case lodging and data sharing processes.
 
-For detailed information on system architecture, modules, and implementation, please refer to the accompanying [D.O.T Final Documentation](./D.O.T Final Documentation.pdf).
+For detailed information on system architecture, modules, and implementation, please refer to the accompanying Documentation: D.O.T Final Documentation.pdf.
 
 ## Disclaimer
 
