@@ -2,7 +2,7 @@
 
 ## Overview
 
-The **D.O.T** (Detection, Observation, Tracking) system is designed to address the multifaceted challenges posed by criminal activities. Traditional methods of law enforcement, though valuable, often fall short when faced with evolving criminal tactics and technological advancements. The **D.O.T** system leverages modern technology, including **computer vision** and **fuzzy logic**, to aid law enforcement agencies, policymakers, and communities in effectively preventing and countering criminal activities.
+The **D.O.T** (Detection, Observation, Tracking) system by Debosmita, Oindrila and Tanisha is designed to address the multifaceted challenges posed by criminal activities. Traditional methods of law enforcement, though valuable, often fall short when faced with evolving criminal tactics and technological advancements. The **D.O.T** system leverages modern technology, including **computer vision** and **fuzzy logic**, to aid law enforcement agencies, policymakers, and communities in effectively preventing and countering criminal activities.
 
 The system integrates multiple functionalities, allowing for efficient collection, interpretation, analysis, and dissemination of crime-related information.
 
