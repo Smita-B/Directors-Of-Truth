@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- =====BOX ICONS===== -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- ===== CSS ===== -->
+        <!--===== GSAP =====-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+
+        <!--===== MAIN JS =====-->
+        <script src="js/main.js"></script>
+
+        <title>Crrime Landing Page</title>
+        <style type="text/css">
+            /*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+/*===== VARIABLES CSS =====*/
+:root{
+  --header-height: 6rem;
+  --height: 4rem;
+  /*===== Colors =====*/
+  --first-color: black;
+  --first-color-dark: #C15170;
+  --first-color-darken: #A83E51;
+  --white-color: #FCF8F8;
+  
+  /*===== Font and typography =====*/
+  --body-font: 'Times New Roman', sans-serif;
+  --big-font-size: 5rem;
+  --normal-font-size: 3rem;
+  
+  /*===== z index =====*/
+  --z-fixed: 100;
+}
+
+@media screen and (min-width: 768px){
+  :root{
+    --big-font-size: 5rem;
+    --normal-font-size: 1rem;
+  }
+}
+
+/*===== BASE =====*/
+*,::before,::after{
+  box-sizing: border-box;
+}
+
+body{
+  margin: var(--header-height) 0 0 0;
+  padding: 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  font-weight: 500;
+}
+
+h1,p,ul{
+  margin: 0;
+}
+
+ul{
+  padding: 0;
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+img{
+  max-width: 88%;
+  height: auto;
+}
+
+/*===== LAYOUT =====*/
+.bd-grid{
+  max-width: 1024px;
+  display: grid;
+  grid-template-columns: 100%;
+  column-gap: 2rem;
+  width: calc(100% - 2rem);
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.l-header{
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+  background-color: transparent;
+}
+
+/*===== NAV =====*/
+.nav{
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 828px){
+  .nav__menu{
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100%;
+    padding: 5.5rem 1.5rem 0;
+    background: rgba(255,255,255,.3);
+    backdrop-filter: blur(10px);
+    transition: .5s;
+  }
+}
+
+.nav__close{
+  position: absolute;
+  top: .75rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.nav__item{
+  margin-bottom: 2rem;
+}
+
+.nav__close, .nav__link, .nav__logo, .nav__toggle{
+  color: var(--white-color);
+}
+
+.nav__link:hover{
+  color: var(--first-color-dark);
+}
+
+.nav__toggle{
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/*=== Show menu ===*/
+.show{
+  right: 0;
+}
+
+.head__button
+{
+  display: inline-block;
+  background-color: var(--first-color-dark);
+  color: var(--white-color);
+  padding: 0.5rem 0.5rem;
+  border-radius: .5rem;
+}
+
+/*===== HOME =====*/
+.home{
+  background: url("landimg/back.png");
+  background-size: cover;
+  overflow: hidden;
+}
+
+.home__container{
+  height: calc(100vh - var(--height));
+  grid-template-rows: repeat(2, max-content);
+  row-gap: 1.5rem;
+}
+
+.home__img{
+  position: relative;
+  padding-top: 1.5rem;
+  justify-self: center;
+  width: 302px;
+  height: 233px;
+}
+
+.home__img img{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.home__data{
+  color: var(--white-color);
+}
+
+.home__title{
+  font-size: var(--big-font-size);
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+.home__description{
+  margin-bottom: 2.5rem;
+  color: #b9c419;
+}
+
+.home__button{
+  display: inline-block;
+  background-color: var(--first-color-dark);
+  color: var(--white-color);
+  padding: 1.125rem 2rem;
+  border-radius: .5rem;
+}
+
+.home__button:hover{
+  background-color: var(--first-color-darken);
+}
+
+/* ===== MEDIA QUERIES =====*/
+@media screen and (min-width: 768px){
+  body{
+    margin: 0;
+  }
+  
+  .nav{
+    height: calc(var(--header-height) + 1.5rem);
+  }
+
+  .nav__toggle, .nav__close{
+    display: none;
+  }
+
+  .nav__list{
+    display: flex;
+  }
+
+  .nav__item{
+    margin-left: 3rem;
+    margin-bottom: 0;
+  }
+
+  .home__container{
+    height: 100vh;
+    grid-template-columns: repeat(2, max-content);
+    grid-template-rows:  1fr;
+    row-gap: 0;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .home__img{
+    order: 1;
+    width: 375px;
+    height: 289px;
+  }
+
+  .home__img img{
+    width: 375px;
+  }
+}
+
+@media screen and (min-width: 1024px){
+  .bd-grid{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .home__container{
+    justify-content: initial;
+    column-gap: 4.5rem;
+  }
+
+  .home__img{
+    width: 604px;
+    height: 466px;
+  }
+
+  .home__img img{
+    width: 604px;
+  }
+}
+
+/*About*/
+
+.about{
+    width: 100%;
+    height: 100vh;
+    padding: 1px 0;
+    background: #ffffff;
+}
+
+.about .about_main{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.about .about_main .image img{
+    width: 700px;
+    position: relative;
+    top: 20px;
+}
+
+.about .about_main .about_text h1 span{
+    color: Red;
+    margin-right: 10px;
+    font-family: Times New Roman, sans-serif;
+}
+
+.about .about_main .about_text h1{
+    font-size: 55px;
+    position: relative;
+    bottom: 80px;
+}
+
+.about .about_main .about_text h3{
+    font-size: 30px;
+    margin: 0 0 20px 0;
+}
+
+.about .about_main .about_text p{
+    width: 650px;
+    text-align: justify;
+    margin-right: 35px;
+    line-height: 22px;
+}
+
+
+
+footer{
+    width: 100%;
+    padding: 10px 0 0 20px;
+    background: url("landimg/back.png");
+    background-size: cover;
+}
+
+footer .footer_main{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+footer .footer_main .footer_tag{
+    text-align: center;
+}
+
+footer .footer_main .footer_tag h2{
+    color: #fff;
+    margin-bottom: 25px;
+    font-size: 30px;
+}
+
+footer .footer_main .footer_tag p{
+    margin: 10px 0;
+    
+}
+
+footer .footer_main .footer_tag i{
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+footer .footer_main .footer_tag i:hover{
+    color: #fac031;
+}
+
+footer .end{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+footer .end span{
+    color: blue;
+    margin-left: 10px;
+}
+
+::-webkit-scrollbar{
+    width: 13px;
+}
+
+::-webkit-scrollbar-track{
+    border-radius: 15px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+}
+
+::-webkit-scrollbar-thumb{
+    background: #fac031;
+    border-radius: 15px;
+}
+
+.review{
+    width: 100%;
+    height: 100vh;
+    padding: 1px 0;
+}
+
+.review h1{
+    font-size: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #050000;
+}
+
+.review h1 span{
+    margin-left: 15px;
+    color: #041e2b;
+    font-family: Times New Roman, sans-serif;
+}
+
+.review h1 span::after{
+    content: '';
+    width: 100%;
+    height: 2px;
+    /*background: #0a0000;*/
+    position: relative;
+    bottom: 15px;
+    display: block;
+}
+
+.review .review_box{
+    width: 95%;
+    margin: 50px auto;
+    display: flex;
+}
+
+.review .review_box .review_card{
+    width: 350px;
+    height: 400px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    border-radius: 8px;
+    padding: 8px 20px;
+    margin: 0 8px;
+}
+
+.review .review_box .review_card .review_profile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: 0.3s;
+}
+
+.review .review_box .review_card:hover .review_profile{
+    transform: translateY(-60px);
+}
+
+.review .review_box .review_card .review_profile img{
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    
+}
+
+.review .review_box .review_card .review_text{
+    text-align: center;
+}
+
+.review .review_box .review_card .review_text .name{
+    color: #090000;
+    transition: 0.3s;
+}
+
+.review .review_box .review_card:hover .review_text .name{
+    transform: translateY(-50px);
+}
+
+.review .review_box .review_card .review_text .review_icon{
+    color: #fac031;
+    transition: 0.3s;
+}
+
+.review .review_box .review_card:hover .review_text .review_icon{
+    transform: translateY(-30px);
+}
+
+.review .review_box .review_card .review_text .review_social i{
+    margin: 5px 1px;
+    font-size: 15px;
+    opacity: 0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.review .review_box .review_card:hover .review_text .review_social i{
+    opacity: 1;
+    transform: translateY(-8px);
+}
+
+.review .review_box .review_card .review_text p{
+    text-align: center;
+    line-height: 22px;
+    transition: 0.3s;
+    color: #0a0000;
+}
+
+.review .review_box .review_card:hover .review_text p{
+    margin-top: 5px;
+}
+
+.background {
+  display: flex;
+  min-height: 100vh;
+  background: #fff;
+}
+
+.container {
+  flex: 0 0 700px;
+  margin: auto;
+  padding: 10px;
+}
+
+.screen {
+  position: relative;
+  background: #111;
+  border-radius: 110px;
+}
+
+.screen:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  right: 20px;
+  bottom: 0;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(100, 100, 100, .4);
+  z-index: -1;
+}
+
+
+.screen-body {
+  display: flex;
+}
+
+.screen-body-item {
+  flex: 1;
+  padding: 70px;
+}
+
+.screen-body-item.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-title {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  color: #ea1d6f;
+  font-size: 26px;
+}
+
+.app-title:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 40px;
+  height: 4px;
+  background: #ea1d6f;
+}
+
+.app-contact {
+  margin-top: auto;
+  font-size: 20px;
+  color: #888;
+}
+
+.app-form-group {
+  margin-bottom: 15px;
+}
+
+.app-form-group.message {
+  margin-top: 40px;
+}
+
+.app-form-group.buttons {
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.app-form-control {
+  width: 130%;
+  padding: 5px 0;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #666;
+  color: #ddd;
+  font-size: 14px;
+  text-transform: uppercase;
+  outline: none;
+  transition: border-color .2s;
+}
+
+.app-form-control::placeholder {
+  color: #aaa;
+}
+
+.app-form-control:focus {
+  border-bottom-color: #ddd;
+}
+
+.app-form-button {
+  background: none;
+  border: none;
+  color: #ea1d6f;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+}
+
+.app-form-button:hover {
+  color: #b9134f;
+}
+
+.credits {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  color: #ffa4bd;
+  font-family: 'Times New Roman', sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.credits-link {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.dribbble {
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+}
+
+@media screen and (max-width: 520px) {
+  .screen-body {
+    flex-direction: column;
+  }
+
+  .screen-body-item.left {
+    margin-bottom: 30px;
+  }
+
+  .app-title {
+    flex-direction: row;
+  }
+
+  .app-title span {
+    margin-right: 12px;
+  }
+
+  .app-title:after {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .screen-body {
+    padding: 40px;
+  }
+
+  .screen-body-item {
+    padding: 0;
+  }
+}
+
+            .home{
+  background: url("landimg/back.png");
+  background-size: cover;
+  overflow: hidden;
+}
+        </style>
+    </head>
+    <body>
+        <!--===== HEADER =====-->
+        <header class="l-header">
+            <nav class="nav bd-grid">
+                <div>
+                    <a href="#" class="nav__logo"><img src="logo.png" height="1800" width="180"></a>
+                </div>
+                
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+
+                <div class="nav__menu" id="nav-menu">
+                    <div class="nav__close" id="nav-close">
+                        <i class='bx bx-x'></i>
+                    </div>
+
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+                        <li class="nav__item"><a href="#About" class="nav__link">About</a></li>
+                        <li class="nav__item"><a href="#Notices" class="nav__link">Services</a></li>
+                        <li class="nav__item"><a href="#Feedback" class="nav__link">Feedback</a></li>
+                        <li class="nav__item"><a href="Admin_login.php" class="head__button">Admin Login</a>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main class="l-main">
+            <!--===== HOME =====-->
+            <section class="home" id="home">
+                <div class="home__container bd-grid">
+                    <div class="home__img">
+                        <img src="landimg/img1.jpg" alt="" data-speed="-2" class="move">
+                    </div>
+
+                    <div class="home__data">
+                        <h1 class="home__title"> <font size="7px" color="white">Directors Of </font><font color="red" size="7px">Truth</font></h1>
+                        <p class="home__description">Welcome to the world of crime detection & Investigation </p><br><br>
+                        <a href="sign_in.php" class="home__button">Sign In</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="sign_up.php" class="home__button">Sign Up</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <div class="about" id="About">
+          <br><br><br><br>
+        <div class="about_main">
+            <div class="image">
+                <img src="logo.png">
+            </div>
+            <div class="about_text">
+                <h1><span>About</span>Us</h1>
+                <h3>Directors Of Truth</h3>
+                <h4>-In Pursuit of Justice, We Stand Tall.</h4>
+                <p>
+                  We offer a range of powerful functionalities to address the challenges posed by criminal activities. Our cutting-edge technologies and integrated systems are designed to enhance law enforcement efforts and ensure the safety of communities.
+                </p>
+                <p> We ensure swift discoveries of missing people. Our ID verification proves authenticity and protection against fraudsters. Danger predictor helps in providing crucial insights into potential risks and threats in specific areas.</p>
+                <p> By streamlining workflows and providing real-time data, we provide improved operational efficiency for law enforcement agencies. Our transparent platform allows citizens to monitor case progress and check the status of their own cases, fostering trust and collaboration.</p>
+                <p> At D.O.T, we are committed to leveraging technology and innovation to combat crime effectively, ultimately creating safer communities.</p>
+            
+              </div>
+        </div>
+    </div>
+    
+    <div class="review" id="Notices">
+        <h1><span>Services</span></h1>
+
+        <div class="review_box">
+            <div class="review_card">
+
+                <div class="review_profile">
+                    <img src="landimg/review_1.jpeg">
+                </div>
+
+                <div class="review_text">
+                    <h2 class="name">Complaint Lodge</h2>
+
+                    <p>A complaint lodge system facilitates the submission, tracking, and resolution of complaints from customers, clients, or users.</p>
+
+                </div>
+
+            </div>
+
+            <div class="review_card">
+
+                <div class="review_profile">
+                    <img src="landimg/review_2.jpeg">
+                </div>
+
+                <div class="review_text">
+                    <h2 class="name">Face Recognition</h2>
+
+                    <p>The system confirms if the provided face matches the template of a specific individual. In identification mode, the system searches a database to determine the person's identity by finding the closest match.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="review_card">
+
+                <div class="review_profile">
+                    <img src="landimg/review_3.jpeg">
+                </div>
+
+                <div class="review_text">
+                    <h2 class="name">Location Security</h2>
+
+                    <p>Displays the approximate danger level of a given police station from the city of Kolkata.</p>
+
+                </div>
+
+            </div>
+
+            <div class="review_card">
+
+                <div class="review_profile">
+                    <img src="landimg/review_4.jpeg">
+                </div>
+
+                <div class="review_text">
+                    <h2 class="name">Awareness Details</h2>
+
+                    <p>
+                       We have provided the youtube links to some self awareness videos . Users can follow those videos in order to gain awareness.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+<div class="background">
+  <div class="container">
+    <div class="screen">
+      <div class="screen-body" id="Feedback">
+        <div class="screen-body-item left">
+          <div class="app-title">
+            <span>FEEDBACK</span>
+            <span>FORM</span>
+          </div>
+        </div>
+        <form action="feadback.php" method="POST">
+
+        <div class="screen-body-item">
+          <div class="app-form">
+            <div class="app-form-group">
+              <input class="app-form-control" placeholder="NAME" name="n">
+            </div>
+            <div class="app-form-group">
+              <input class="app-form-control" placeholder="EMAIL" name="e">
+            </div>
+            <div class="app-form-group">
+              <input type="text" pattern="[+]{1}[0-9]{2}[0-9]{5}[0-9]{5}" name="p" minlength="13"id="t5" size="22" title="Enter your mobile no."placeholder="Mobile No." required class="app-form-control">
+            </div>
+            <div class="app-form-group message">
+              <input class="app-form-control" placeholder="MESSAGE" name="m">
+            </div>
+            <div class="app-form-group buttons">
+              <button class="app-form-button" id="submit" type="submit">Submit</button>
+            </div>
+          </div>
+        </div>
+        </form>
+      </div>
+    </div>
+    </div>
+</div>
+     <footer>
+        <div class="footer_main">
+
+            <div class="footer_tag">
+                <h2>Location</h2>
+                <p><a href="#" style="color:white">Kolkata</a></p>
+            </div>
+
+            <div class="footer_tag">
+                <h2>Quick Link</h2>
+                <p><a href="#" style="color:white">Home</a></p>
+                <p><a href="#" style="color:white">About</a></p>
+                <p><a href="#" style="color:white">Services</a></p>
+                <p><a href="#" style="color:white">Feedback</a></p>
+            </div>
+
+            <div class="footer_tag">
+                <h2>Contact</h2>
+                <p><a href="#" style="color:white">+91 8910232147</a></p>
+                <p><a href="#" style="color:white">+91 7076968451</a></p>
+                <p><a href="#" style="color:white">+91 8335012966</a></p>
+                <p><a href="#" style="color:white">oindrilapathak2020@gmail.com</a></p>
+                <p><a href="#" style="color:white">deytanisha19@gmail.com.com</a></p>
+                <p><a href="#" style="color:white">debosmitabandyopadhyay@gmail.com</a></p>
+            </div>
+
+            <div class="footer_tag">
+                <h2>Our Service</h2>
+                <p><a href="#" style="color:white">24 x 7 Service</a></p>
+            </div>
+
+            <div class="footer_tag">
+                <h2>Follows</h2>
+                <p><a href="https://www.facebook.com/profile.php?id=100093114987187&mibextid=ZbWKwL" style="color:white">Click Here</a><font color="yellow"><i class="fa-brands fa-facebook-f"></i></font>
+            </div>
+
+        </div>
+
+        <p class="end"><font color="yellow">Design by</font><span><i class="fa-solid fa-face-grin"></i> DOT Group</span></p>
+
+    </footer>
+
+    </body>
+</html>

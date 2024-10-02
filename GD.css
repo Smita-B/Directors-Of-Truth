@@ -1,0 +1,129 @@
+body {
+  text-align: center;
+  background-color: #fffaae;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+p {
+  font-size: 22px;
+}
+
+.form-rows {
+  position: static;
+  display: block;
+}
+
+.master-div-style {
+  margin: auto;
+  width: 800px;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  padding: 20px 10px 10px 10px;
+}
+
+.fields {
+  display: inline-block;
+  text-align: left;
+  width: 48%;
+  vertical-align: middle;
+}
+.labels {
+  display: inline-block;
+  text-align: right;
+  width: 40%;
+  padding: 5px;
+  vertical-align: top;
+  margin-top: 10px;
+}
+
+.input-fields {
+  height: 20px;
+  width: 280px;
+  padding: 5px;
+  margin: 10px;
+  border: 1px solid #c0c0c0;
+  border-radius: 4px;
+}
+
+.dropdown {
+  height: 35px;
+  width: 140px;
+  padding: 5px;
+  margin: 15px 10px 10px 10px;
+  border: 1px solid #c0c0c0;
+  border-radius: 4px;
+}
+
+.dates {
+  height: 20px;
+  width: 140px;
+  padding: 5px;
+  margin: 15px 10px 10px 10px;
+  border: 1px solid #c0c0c0;
+  border-radius: 4px;
+}
+
+.button {
+  font-size: 1em;
+  background-color: #69ad5b;
+  color: white;
+  border: 0px solid;
+  border-radius: 4px;
+  height: 40px;
+  width: 80px;
+  margin: 10px;
+}
+
+@media (max-width: 833px) {
+  .master-div-style {
+    width: 70%;
+  }
+
+  .fields {
+    display: inline-block;
+    text-align: left;
+    width: 48%;
+    vertical-align: middle;
+  }
+
+  .input-fields {
+    width: 80%;
+  }
+
+  .dropdown {
+    width: 90%;
+  }
+
+  .dates {
+    width: 90%;
+  }
+}
+
+@media (max-width: 520px) {
+  .master-div-style {
+    width: 80%;
+  }
+
+  .fields {
+    width: 80%;
+    float: left;
+  }
+  .labels {
+    width: 100%;
+    text-align: left;
+  }
+
+  .input-fields {
+    width: 100%;
+  }
+
+  .dropdown {
+    width: 100%;
+  }
+  .dates{
+     width: 100%;
+  }
+}
